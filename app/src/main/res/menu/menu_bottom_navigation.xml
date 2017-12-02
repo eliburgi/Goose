@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_news_feed"
+        android:icon="@drawable/ic_newsfeed"
+        android:title="Newsfeed" />
+
+    <item
+        android:id="@+id/menu_search"
+        android:icon="@drawable/ic_search"
+        android:title="Suche" />
+    <item
+        android:id="@+id/menu_subscriptions"
+        android:icon="@drawable/ic_whatshot"
+        android:title="Abonniert" />
+    <item
+        android:id="@+id/menu_read_later"
+        android:icon="@drawable/ic_bookmark"
+        android:title="Später lesen" />
+
+</menu>
