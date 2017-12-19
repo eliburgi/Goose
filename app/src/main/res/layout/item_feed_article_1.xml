@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="150dp"
+    android:minHeight="140dp">
+
+    <ImageView
+        android:id="@+id/img_article_header"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/test_img_3" />
+
+    <TextView
+        android:id="@+id/tv_article_source"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="BBC-News"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="#999"
+        app:layout_constraintStart_toEndOf="@+id/img_article_header"
+        app:layout_constraintTop_toTopOf="@+id/img_article_header" />
+
+    <TextView
+        android:id="@+id/tv_article_published_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="16dp"
+        android:text="3 hours ago"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="#999"
+        android:textSize="10dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/tv_article_source"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@+id/tv_article_source" />
+
+    <TextView
+        android:id="@+id/tv_article_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Indispensable tools for low-budget startups"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv_article_published_time"
+        app:layout_constraintStart_toStartOf="@+id/tv_article_source"
+        app:layout_constraintTop_toBottomOf="@+id/tv_article_source" />
+
+    <TextView
+        android:id="@+id/tv_article_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:ellipsize="marquee"
+        android:maxLines="2"
+        android:text="Starting a web design studio can be an expensive undertaking but doesn´t mean it is"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_article_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_article_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_article_title"
+        app:layout_constraintVertical_bias="0" />
+
+</android.support.constraint.ConstraintLayout>

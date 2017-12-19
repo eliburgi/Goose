@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:layout_marginTop="4dp"
+    app:cardUseCompatPadding="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_article_header"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/test_img_3" />
+
+        <TextView
+            android:id="@+id/tv_article_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Retro cars are the new Ferrrari´s"
+            android:textAppearance="@style/TextAppearance.AppCompat.Title"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_article_header" />
+
+        <TextView
+            android:id="@+id/tv_article_source"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="BBC News"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="#f06373"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_article_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_title" />
+
+        <TextView
+            android:id="@+id/tv_article_published_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="3 hours ago"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="#999"
+            android:textSize="12sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/tv_article_source"
+            app:layout_constraintStart_toEndOf="@+id/tv_article_source" />
+
+        <TextView
+            android:id="@+id/tv_article_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="12dp"
+            android:ellipsize="marquee"
+            android:maxLines="2"
+            android:paddingBottom="16dp"
+            android:text="Knight Foundation do what you do best and link to the rest dead trees should isn't a business model every dog loves food David Cohn should isn't a business model Instagram, content is king Gannett synergize Journal Register content is king twitterati data visualization discuss, Kindle Single future of context privacy fair use pay curtain open newsroom net neutrality"
+            app:layout_constraintEnd_toStartOf="@+id/imageView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tv_article_source"
+            app:layout_constraintTop_toBottomOf="@+id/tv_article_source" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:padding="12dp"
+            android:tint="#999"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/ic_bookmark_border" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

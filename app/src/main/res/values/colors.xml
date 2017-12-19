@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#235EFD</color>
+    <color name="colorPrimary">#f06373</color>
+    <color name="colorPrimaryDark">#EE4E60</color>
+    <color name="colorAccent">@color/colorPrimary</color>
+
+    <!--
+    Text Article Description
+    Text Article Title
+    Text Article PublishedAtTime
+    Text Article Source
+
+    Icon Light
+    Icon Dark
+    Text Primary Dark
+    Text Secondary Dark
+    Text Hint Dark
+    Text Primary Light
+    Text Secondary Light
+    Text Hint Light
+    -->
 </resources>

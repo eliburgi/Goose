@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        id="@+id/menu_news_feed"
+        icon="@drawable/ic_newsfeed"
+        title="News" />
+    <tab
+        id="@+id/menu_search"
+        icon="@drawable/ic_search"
+        title="Entdecken" />
+    <tab
+        id="@+id/menu_subscriptions"
+        icon="@drawable/ic_whatshot"
+        title="Abonniert" />
+
+    <tab
+        id="@+id/menu_read_later"
+        icon="@drawable/ic_bookmark"
+        title="Später lesen" />
+</tabs>
