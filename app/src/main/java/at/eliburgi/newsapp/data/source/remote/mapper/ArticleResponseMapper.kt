@@ -1,7 +1,6 @@
 package at.eliburgi.newsapp.data.source.remote.mapper
 
 import at.eliburgi.newsapp.data.source.Mapper
-import at.eliburgi.newsapp.data.source.MapperUtils
 import at.eliburgi.newsapp.data.source.remote.model.ArticleResponse
 import at.eliburgi.newsapp.domain.model.Article
 import javax.inject.Inject
@@ -20,6 +19,6 @@ class ArticleResponseMapper @Inject constructor() : Mapper<ArticleResponse, Arti
                 from.author,
                 from.url,
                 from.urlToImage,
-                MapperUtils.convertUtcStringToMillis(from.publishedAt))
+                ResponseMapperUtils.convertUtcStringToMillis(from.publishedAt))
     }
 }

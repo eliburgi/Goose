@@ -1,4 +1,4 @@
-package at.eliburgi.newsapp.data.source
+package at.eliburgi.newsapp.data.source.remote.mapper
 
 import android.util.Log
 import java.text.ParseException
@@ -10,7 +10,7 @@ import java.util.*
  * Created by Elias on 18.12.2017.
  */
 
-object MapperUtils {
+object ResponseMapperUtils {
     private const val UTC_TIME_ZONE = "UTC"
     private const val ISO_8601_FORMAT = "yyyy-MM-dd'T'HH:mm:ss'Z'"
 
@@ -27,7 +27,7 @@ object MapperUtils {
             formatter.timeZone = TimeZone.getTimeZone(UTC_TIME_ZONE)
             formatter.parse(timeStamp).time
         } catch (e: ParseException) {
-            Log.e("MapperUtils", "Error while parsing UTC timeStamp!")
+            Log.e("ResponseMapperUtils", "Error while parsing UTC timeStamp!")
             0
         }
     }

@@ -63,13 +63,13 @@
             app:layout_constraintBaseline_toBaselineOf="@id/tv_article_source"
             app:layout_constraintStart_toEndOf="@+id/tv_article_source" />
 
-        <TextView
+        <at.eliburgi.newsapp.presentation.views.EllipsizingTextView
             android:id="@+id/tv_article_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginTop="12dp"
-            android:ellipsize="marquee"
+            android:ellipsize="end"
             android:maxLines="2"
             android:paddingBottom="16dp"
             android:text="Knight Foundation do what you do best and link to the rest dead trees should isn't a business model every dog loves food David Cohn should isn't a business model Instagram, content is king Gannett synergize Journal Register content is king twitterati data visualization discuss, Kindle Single future of context privacy fair use pay curtain open newsroom net neutrality"
