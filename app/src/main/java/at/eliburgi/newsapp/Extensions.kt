@@ -21,3 +21,15 @@ fun Fragment.toast(message: String, duration: Int = Toast.LENGTH_LONG) {
 fun Fragment.toast(@StringRes msgRes: Int, duration: Int = Toast.LENGTH_LONG) {
     toast(getString(msgRes), duration)
 }
+
+fun View.hide() {
+    visibility = View.INVISIBLE
+}
+
+fun View.show() {
+    visibility = View.VISIBLE
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}

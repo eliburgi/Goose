@@ -7,7 +7,10 @@ import android.widget.ImageView
 import android.widget.TextView
 import at.eliburgi.newsapp.R
 import at.eliburgi.newsapp.domain.model.Article
+import at.eliburgi.newsapp.gone
 import at.eliburgi.newsapp.inflateView
+import at.eliburgi.newsapp.show
+import com.squareup.picasso.Picasso
 
 /**
  * Created by Elias on 16.12.2017.
@@ -25,8 +28,26 @@ class NewsFeedAdapter(private val articles: MutableList<Article> = mutableListOf
         fun bind(article: Article) {
             tvTitle.text = article.title
             tvSource.text = article.sourceName
-            tvPublishedAt.text = "3 hours ago"
             tvDescription.text = article.description
+
+            if (article.publishedAt == 0L) {
+                tvPublishedAt.gone()
+            } else {
+                tvPublishedAt.show()
+                tvPublishedAt.text = "3 hours ago"  // TODO
+            }
+
+            if (article.urlToImage == null) {
+                imgHeader.gone()
+            } else {
+                imgHeader.show()
+                Picasso.with(itemView.context)
+                        .load(article.urlToImage)
+                        .fit()
+                        .centerCrop()
+                        .placeholder(R.drawable.placeholder_article_header)
+                        .into(imgHeader)
+            }
         }
     }
 

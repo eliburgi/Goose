@@ -22,7 +22,7 @@ abstract class BaseFragment : Fragment() {
         return inflater.inflate(layoutId(), container, false)
     }
 
-    fun appComponent() = (context.applicationContext as GooseApp).component
+    fun appComponent() = (context!!.applicationContext as GooseApp).component
 
     protected abstract fun layoutId(): Int
     protected abstract fun inject()
