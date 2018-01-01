@@ -1,4 +1,4 @@
-package at.eliburgi.newsapp.data.source
+package at.eliburgi.newsapp.data.mapper
 
 /**
  * Created by Elias on 18.12.2017.

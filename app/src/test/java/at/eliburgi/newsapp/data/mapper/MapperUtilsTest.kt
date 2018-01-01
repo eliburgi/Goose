@@ -1,6 +1,5 @@
 package at.eliburgi.newsapp.data.mapper
 
-import at.eliburgi.newsapp.data.source.remote.mapper.ResponseMapperUtils
 import org.junit.Assert.assertEquals
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -15,14 +14,14 @@ class MapperUtilsTest {
     @Test
     fun testConvertStringToTimestamp() {
         val timeStamp = "2011-04-15T20:08:18Z"
-        val convertedTimeStamp = ResponseMapperUtils.convertUtcStringToMillis(timeStamp)
+        val convertedTimeStamp = MapperUtils.convertUtcStringToMillis(timeStamp)
         assertEquals(1302898098000, convertedTimeStamp)
     }
 
     @Test
     fun testConvertStringToTimestamp_InvalidFormat() {
         val timeStamp = "2011-04-15T08:18Z"
-        val convertedTimeStamp = ResponseMapperUtils.convertUtcStringToMillis(timeStamp)
+        val convertedTimeStamp = MapperUtils.convertUtcStringToMillis(timeStamp)
         assertEquals(0, convertedTimeStamp)
     }
 

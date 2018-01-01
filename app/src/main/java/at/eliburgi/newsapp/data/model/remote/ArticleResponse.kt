@@ -1,4 +1,4 @@
-package at.eliburgi.newsapp.data.source.remote.model
+package at.eliburgi.newsapp.data.model.remote
 
 import com.google.gson.annotations.SerializedName
 

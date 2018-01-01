@@ -1,4 +1,4 @@
-package at.eliburgi.newsapp.data.source.remote.api
+package at.eliburgi.newsapp.data.exception
 
 /**
  * Created by Elias on 18.12.2017.

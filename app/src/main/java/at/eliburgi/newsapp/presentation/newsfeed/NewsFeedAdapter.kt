@@ -15,7 +15,8 @@ import com.squareup.picasso.Picasso
 /**
  * Created by Elias on 16.12.2017.
  */
-class NewsFeedAdapter(private val articles: MutableList<Article> = mutableListOf())
+class NewsFeedAdapter(private val articles: MutableList<Article> = mutableListOf(),
+                      private val listener: OnArticleClickedListener)
     : RecyclerView.Adapter<NewsFeedAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -28,25 +29,43 @@ class NewsFeedAdapter(private val articles: MutableList<Article> = mutableListOf
         fun bind(article: Article) {
             tvTitle.text = article.title
             tvSource.text = article.sourceName
-            tvDescription.text = article.description
+            updateDescription(article)
+            updatePublishedTime(article)
+            updateHeaderImage(article)
+        }
 
-            if (article.publishedAt == 0L) {
-                tvPublishedAt.gone()
+        private fun updateDescription(article: Article) {
+            if (article.hasDescription()) {
+                tvDescription.show()
+                tvDescription.text = article.description
             } else {
-                tvPublishedAt.show()
-                tvPublishedAt.text = "3 hours ago"  // TODO
+                tvDescription.gone()
             }
+        }
 
-            if (article.urlToImage == null) {
-                imgHeader.gone()
+        private fun updatePublishedTime(article: Article) {
+            if (article.hasPublishedTime()) {
+                tvPublishedAt.show()
+                // TODO convert the UTC long millis to local delta time string.
+                tvPublishedAt.text = "3 hours ago"
             } else {
+                tvPublishedAt.gone()
+            }
+        }
+
+        private fun updateHeaderImage(article: Article) {
+            if (article.hasImageUrl()) {
                 imgHeader.show()
+                // TODO: Set error drawable.
                 Picasso.with(itemView.context)
                         .load(article.urlToImage)
                         .fit()
                         .centerCrop()
-                        .placeholder(R.drawable.placeholder_article_header)
+                        .placeholder(R.drawable.article_header_placeholder)
+                        .error(R.drawable.article_header_error)
                         .into(imgHeader)
+            } else {
+                imgHeader.gone()
             }
         }
     }
@@ -59,6 +78,7 @@ class NewsFeedAdapter(private val articles: MutableList<Article> = mutableListOf
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val article = articles[position]
         holder.bind(article)
+        holder.itemView.setOnClickListener { listener.onArticleClicked(article) }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -67,4 +87,8 @@ class NewsFeedAdapter(private val articles: MutableList<Article> = mutableListOf
     }
 
     override fun getItemCount() = articles.size
+
+    interface OnArticleClickedListener {
+        fun onArticleClicked(article: Article)
+    }
 }

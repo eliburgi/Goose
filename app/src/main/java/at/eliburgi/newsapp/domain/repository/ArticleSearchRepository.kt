@@ -1,4 +1,4 @@
-package at.eliburgi.newsapp.domain
+package at.eliburgi.newsapp.domain.repository
 
 /**
  * Created by Elias on 08.12.2017.

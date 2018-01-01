@@ -3,7 +3,7 @@ package at.eliburgi.newsapp.presentation.newsfeed
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import at.eliburgi.newsapp.di.scope.ViewScope
-import at.eliburgi.newsapp.domain.ArticleRepository
+import at.eliburgi.newsapp.domain.repository.ArticleRepository
 import at.eliburgi.newsapp.domain.scheduler.BaseScheduler
 import javax.inject.Inject
 

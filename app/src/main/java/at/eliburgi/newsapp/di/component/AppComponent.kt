@@ -3,7 +3,7 @@ package at.eliburgi.newsapp.di.component
 import at.eliburgi.newsapp.di.module.ApiModule
 import at.eliburgi.newsapp.di.module.AppModule
 import at.eliburgi.newsapp.di.module.DataModule
-import at.eliburgi.newsapp.domain.ArticleRepository
+import at.eliburgi.newsapp.domain.repository.ArticleRepository
 import at.eliburgi.newsapp.domain.scheduler.BaseScheduler
 import dagger.Component
 import javax.inject.Singleton
