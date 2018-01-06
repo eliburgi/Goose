@@ -3,7 +3,13 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
-def NEWS_API_KEY = '"' + NewsApiKey + '"' ?: '"News Api Key not set."'
+def getApiKey(){
+    def Properties props = new Properties()
+    props.load(new FileInputStream(new File('secrets.properties')))
+    return props['NewsApiKey']
+}
+
+def NEWS_API_KEY = '"' + getApiKey() + '"' ?: '"News Api Key not set."'
 
 android {
     compileSdkVersion 26
