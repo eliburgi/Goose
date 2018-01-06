@@ -5,18 +5,7 @@ import android.os.Bundle
 import android.webkit.WebChromeClient
 import android.webkit.WebViewClient
 import at.eliburgi.newsapp.R
-import io.reactivex.Single
 import kotlinx.android.synthetic.main.activity_article_reader.*
-import me.angrybyte.goose.network.GooseDownloader
-import android.graphics.Bitmap
-import android.support.v4.app.FragmentActivity
-import android.util.Log
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
-import me.angrybyte.goose.Article
-import me.angrybyte.goose.Configuration
-import me.angrybyte.goose.ContentExtractor
-import java.lang.IllegalStateException
 
 
 class ArticleReaderActivity : AppCompatActivity() {

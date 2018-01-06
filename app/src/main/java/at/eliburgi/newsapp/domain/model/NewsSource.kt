@@ -1,6 +1,7 @@
 package at.eliburgi.newsapp.domain.model
 
 /**
- * Created by Elias on 08.12.2017.
+ * Represents a more known news source which regularly publishes articles.
+ * E.g.: BBC-News, ...
  */
-data class NewsSource(val id: String?, val name: String)
+data class NewsSource(val id: String, val name: String)

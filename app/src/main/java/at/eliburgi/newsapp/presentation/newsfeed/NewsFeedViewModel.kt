@@ -18,7 +18,9 @@ class NewsFeedViewModel(private val articleRepository: ArticleRepository,
                         private val schedulerProvider: BaseScheduler)
     : ViewModel() {
 
-    private val newsFeed = MutableLiveData<Response<List<Article>>>()
+    private val _newsFeed = MutableLiveData<Response<List<Article>>>()
+    val newsFeed: LiveData<Response<List<Article>>>
+        get() = _newsFeed
 
     fun loadNewsFeed() {
         val request = TopArticleRequest(
@@ -28,20 +30,23 @@ class NewsFeedViewModel(private val articleRepository: ArticleRepository,
                 .subscribeOn(schedulerProvider.io())
                 .observeOn(schedulerProvider.ui())
                 .subscribe(this::updateNewsFeed, this::errorLoadingNewsFeed)
+
+        // loadNewsFeedUseCase.loadFeed()
     }
 
-    fun newsFeed(): LiveData<Response<List<Article>>> = newsFeed
+    // fun loadMore()
+    // loadNewsFeedUseCase.loadMore()
 
     private fun updateNewsFeed(articles: List<Article>) {
-        newsFeed.value = Response.success(articles)
+        _newsFeed.value = Response.success(articles)
     }
 
     private fun errorLoadingNewsFeed(error: Throwable) {
-        newsFeed.value = Response.error(error)
+        _newsFeed.value = Response.error(error)
     }
 
     override fun onCleared() {
         super.onCleared()
-        // Dispose any rx subscribers.
+        // Dispose any rx subscribers - however, singles are cleaned up automatically.
     }
 }

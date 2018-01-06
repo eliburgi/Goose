@@ -1,6 +1,7 @@
 package at.eliburgi.newsapp.di.module
 
 import android.app.Application
+import android.content.Context
 import at.eliburgi.newsapp.domain.scheduler.BaseScheduler
 import at.eliburgi.newsapp.domain.scheduler.SchedulerProvider
 import dagger.Module
@@ -12,10 +13,9 @@ import javax.inject.Singleton
  */
 @Module
 class AppModule(private val app: Application) {
-
     @Singleton
     @Provides
-    fun provideContext() = app
+    fun provideContext(): Context = app
 
     @Singleton
     @Provides

@@ -20,10 +20,10 @@ internal object MapperUtils {
     /**
      * Converts a given UTC date/time string in ISO_8601 format to a long timestamp in millis.
      * @param timeStamp must be in ISO_8601 format: e.g. "2017-12-18T13:22:32Z".
-     * @return a long representing the UTC time in milliseconds. If the [timeStamp] is null or there was a parsing error, 0 is returned.
+     * @return a long representing the UTC time in milliseconds. If the [timeStamp] is null or there was a parsing error, null is returned.
      */
-    fun convertUtcStringToMillis(timeStamp: String?): Long {
-        if (timeStamp == null) return 0
+    fun convertUtcStringToMillis(timeStamp: String?): Long? {
+        if (timeStamp == null) return null
 
         return try {
             val formatter = SimpleDateFormat(ISO_8601_FORMAT)
@@ -31,7 +31,7 @@ internal object MapperUtils {
             formatter.parse(timeStamp).time
         } catch (e: ParseException) {
             Log.e("MapperUtils", "Error while parsing UTC timeStamp!")
-            0
+            null
         }
     }
 

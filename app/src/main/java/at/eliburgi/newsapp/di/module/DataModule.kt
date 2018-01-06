@@ -1,13 +1,17 @@
 package at.eliburgi.newsapp.di.module
 
+import at.eliburgi.newsapp.data.mapper.ArticleIdMapper
 import at.eliburgi.newsapp.data.mapper.Mapper
+import at.eliburgi.newsapp.data.mapper.SimpleArticleIdMapper
 import at.eliburgi.newsapp.data.mapper.remote.ArticleResponseMapper
 import at.eliburgi.newsapp.data.mapper.remote.TopArticleRequestMapper
 import at.eliburgi.newsapp.data.model.remote.ArticleResponse
 import at.eliburgi.newsapp.data.model.remote.QueryMap
 import at.eliburgi.newsapp.data.repository.ArticleRepositoryImpl
-import at.eliburgi.newsapp.data.repository.datasource.ArticleDataSource
-import at.eliburgi.newsapp.data.repository.datasource.remote.RemoteArticleSource
+import at.eliburgi.newsapp.data.repository.source.ArticleSource
+import at.eliburgi.newsapp.data.repository.source.remote.RemoteArticleSource
+import at.eliburgi.newsapp.data.util.ContextNetworkManager
+import at.eliburgi.newsapp.data.util.NetworkManager
 import at.eliburgi.newsapp.di.qualifier.Remote
 import at.eliburgi.newsapp.domain.model.Article
 import at.eliburgi.newsapp.domain.model.TopArticleRequest
@@ -23,6 +27,14 @@ import javax.inject.Singleton
 class DataModule {
     @Provides
     @Singleton
+    fun provideNetworkManager(manager: ContextNetworkManager): NetworkManager = manager
+
+    @Provides
+    @Singleton
+    fun provideArticleIdMapper(mapper: SimpleArticleIdMapper): ArticleIdMapper = mapper
+
+    @Provides
+    @Singleton
     fun provideArticleResponseMapper(mapper: ArticleResponseMapper): Mapper<ArticleResponse, Article> = mapper
 
     @Provides
@@ -33,7 +45,7 @@ class DataModule {
     @Singleton
     @Provides
     @Remote
-    fun provideRemoteArticleSource(dataSource: RemoteArticleSource): ArticleDataSource = dataSource
+    fun provideRemoteArticleSource(dataSource: RemoteArticleSource): ArticleSource = dataSource
 
     @Singleton
     @Provides

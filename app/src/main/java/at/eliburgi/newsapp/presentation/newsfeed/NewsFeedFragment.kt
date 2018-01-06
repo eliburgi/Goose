@@ -18,6 +18,14 @@ import at.eliburgi.newsapp.toast
 import kotlinx.android.synthetic.main.fragment_news_feed.*
 import javax.inject.Inject
 
+/**
+ * 1. Add feature Pull-To-Refresh.
+ * 2. Add feature Pagination.
+ * 3. Add DB caching.
+ * 4. Add displaying full article.
+ * 5. Add bookmarking articles.
+ */
+
 class NewsFeedFragment : BaseFragment(), NewsFeedAdapter.OnArticleClickedListener {
 
     @Inject
@@ -55,13 +63,13 @@ class NewsFeedFragment : BaseFragment(), NewsFeedAdapter.OnArticleClickedListene
     }
 
     private fun showErrorLoadingNewsFeed(error: Throwable) {
-        toast("Error loading nes feed: ${error.message}")
+        toast("Error loading news feed: ${error.message}")
         Log.e("NewsFeedFragment", "Error loading news feed: ${error.message}")
     }
 
     private fun startObservingViewModel() {
         // Observe news feed article stream.
-        viewModel.newsFeed().observe(this, Observer { response ->
+        viewModel.newsFeed.observe(this, Observer { response ->
             response?.let {
                 when {
                     response.isSuccess() -> updateNewsFeed(response.data!!)

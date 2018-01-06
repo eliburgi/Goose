@@ -1,7 +1,7 @@
 package at.eliburgi.newsapp.di.module
 
 import at.eliburgi.newsapp.BuildConfig
-import at.eliburgi.newsapp.data.repository.datasource.remote.api.NewsArticleApi
+import at.eliburgi.newsapp.data.repository.source.remote.api.NewsArticleApi
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
 import dagger.Provides

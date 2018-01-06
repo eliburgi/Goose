@@ -12,7 +12,7 @@ class TopArticleRequest(val sources: List<NewsSource> = emptyList(),
                         val countries: List<Country> = emptyList()) {
 
     fun getSourceIds() = sources.map { source -> source.id }
-            .filter { id -> id != null && id.isNotBlank() }
+            .filter { id -> id.isNotBlank() }
             .requireNoNulls()
 
     fun getNonEmptyKeywords() = keywords.filter { word -> word.isNotBlank() }

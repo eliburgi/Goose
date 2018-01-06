@@ -1,4 +1,4 @@
-package at.eliburgi.newsapp.data.repository.datasource.remote.api
+package at.eliburgi.newsapp.data.repository.source.remote.api
 
 import at.eliburgi.newsapp.data.model.remote.RecentArticleResponseWrapper
 import at.eliburgi.newsapp.data.model.remote.TopArticleResponseWrapper
@@ -13,7 +13,7 @@ interface NewsArticleApi {
     @GET(TOP_HEADLINES)
     fun topArticles(@QueryMap queryMap: Map<String, String>): Single<TopArticleResponseWrapper>
 
-    @GET("$RECENT_HEADLINES?q=technology&sortBy=popularity")
+    @GET("${RECENT_HEADLINES}?q=technology&sortBy=popularity")
     fun recentArticles(): Single<RecentArticleResponseWrapper>
 
     companion object {
